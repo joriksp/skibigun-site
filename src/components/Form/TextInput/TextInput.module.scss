@@ -1,0 +1,43 @@
+.input_container {
+   width: 100%;
+   position: relative;
+
+   .bg {
+      position: relative;
+      z-index: 0;
+      width: 100%;
+      display: block;
+   }
+
+   input {
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 4px 14px;
+
+      background: none !important;
+      border: none;
+      outline: none;
+
+      font-family: "Aparajita", "Times New Roman", Times, serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: #ffffff;
+
+      @media screen and (max-width: 670px) {
+         font-size: 3vw;
+         padding: 4px 2vw;
+      }
+
+      &::placeholder {
+         color: #ffffffab;
+      }
+
+      &[data-autocompleted] {
+         background-color: transparent !important;
+      }
+   }
+}

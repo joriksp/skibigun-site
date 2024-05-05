@@ -1,0 +1,83 @@
+.item {
+   display: flex;
+   flex-grow: 12;
+   justify-content: space-between;
+   align-items: center;
+   gap: 0px;
+   font-size: 22px;
+
+   @media screen and (max-width: 670px) {
+      font-size: 3.3vw;
+   }
+
+   &:hover {
+      filter: brightness(1.2);
+   }
+
+   .line {
+      width: 100%;
+      height: 9px;
+      border-bottom: 1.5px dotted #d0d199;
+   }
+
+   .checkbox {
+      display: flex;
+      align-items: center;
+      width: fit-content;
+      gap: 10px;
+
+      input[type="checkbox"] {
+         -webkit-appearance: none;
+         appearance: none;
+         margin: 0;
+         cursor: pointer;
+
+         position: relative;
+
+         &::before {
+            position: relative;
+            z-index: 1;
+            content: "";
+            display: block;
+            width: 20px;
+            height: 20px;
+
+            @media screen and (max-width: 670px) {
+               width: 3vw;
+               height: 3vw;
+            }
+
+            background: url(/src/assets/checkbox.png);
+            background-size: cover;
+         }
+
+         &:checked {
+            &::before {
+               background: url(/src/assets/checkbox-checked.png);
+               background-size: cover;
+            }
+
+            &::after {
+               position: absolute;
+               content: "";
+               z-index: 2;
+               top: 50%;
+               left: 50%;
+
+               transform: translate(-50%, -50%);
+
+               width: 26px;
+               height: 26px;
+
+               @media screen and (max-width: 540px) {
+                  width: 22px;
+                  height: 22px;
+               }
+
+               background: url(/src/assets/checkbox-glowing.png);
+               background-size: cover;
+            }
+         }
+      }
+   }
+}
