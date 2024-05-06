@@ -12,15 +12,15 @@ import AutoRedirect from "./pages/AutoRedirect";
 
 const router = createBrowserRouter([
    {
-      path: "skibigun-site/",
+      path: "/",
       element: <AutoRedirect />,
    },
    {
-      path: "skibigun-site/en/",
+      path: "en/",
       element: <EngVersion />,
    },
    {
-      path: "skibigun-site/ru/",
+      path: "ru/",
       element: <RusVersion />,
    },
 ]);
@@ -28,8 +28,8 @@ const router = createBrowserRouter([
 function App() {
    return (
       <>
-         {/* <RouterProvider router={router} /> */}
-         <EngVersion />
+         <RouterProvider router={router} />
+         {/* <EngVersion /> */}
       </>
    );
 }
