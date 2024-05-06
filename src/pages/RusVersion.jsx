@@ -20,7 +20,7 @@ const RusVersion = () => {
          <Slide image={_4} />
          <Slide image={_5} />
          <Slide image={_6}>
-            <Form />
+            <Form lang={"ru"} />
          </Slide>
       </Main>
    );

@@ -1,7 +1,8 @@
 import React from "react";
 import styles from "./CheckBox.module.scss";
+import CurrencyFormat from "react-currency-format";
 
-const CheckBox = ({ id, label, checked, price, onChange }) => {
+const CheckBox = ({ id, label, checked, price, onChange, locale }) => {
    return (
       <div className={styles.item}>
          <div className={styles.checkbox}>
@@ -15,7 +16,17 @@ const CheckBox = ({ id, label, checked, price, onChange }) => {
             <label>{label}</label>
          </div>
          <div className={styles.line}></div>
-         <p>{price}$</p>
+         <CurrencyFormat
+            value={price}
+            displayType={"text"}
+            thousandSeparator={true}
+            renderText={(value) => (
+               <p>
+                  {value}
+                  {locale === "en" ? "$" : "₽"}
+               </p>
+            )}
+         />
       </div>
    );
 };

@@ -6,9 +6,9 @@ const AutoRedirect = () => {
    let redirectLink = "";
 
    if (language.startsWith("ru")) {
-      redirectLink = "/ru";
+      redirectLink = "/skibigun-site/ru";
    } else {
-      redirectLink = "/en";
+      redirectLink = "/skibigun-site/en";
    }
 
    console.log(`Redirecting to ${redirectLink}`);

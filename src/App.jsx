@@ -16,11 +16,11 @@ const router = createBrowserRouter([
       element: <AutoRedirect />,
    },
    {
-      path: "en/",
+      path: "skibigun-site/en/",
       element: <EngVersion />,
    },
    {
-      path: "ru/",
+      path: "skibigun-site/ru/",
       element: <RusVersion />,
    },
 ]);
