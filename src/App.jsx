@@ -12,7 +12,7 @@ import AutoRedirect from "./pages/AutoRedirect";
 
 const router = createBrowserRouter([
    {
-      path: "/",
+      path: "skibigun-site/",
       element: <AutoRedirect />,
    },
    {
