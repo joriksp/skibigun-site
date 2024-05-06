@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import CurrencyFormat from "react-currency-format";
 
 import styles from "./ItemSelect.module.scss";
 
 import CheckBox from "../CheckBox";
+
 import heading from "@assets/slides/eng/chooseaskibigun.png";
-import CurrencyFormat from "react-currency-format";
+import headin_rus from "@assets/slides/rus/chooseaskibigun.png";
 
 const ItemSelect = ({ items, onChange, selectAll, selected, locales }) => {
    const totalPrice = items.reduce((prev, cur) => {
@@ -14,11 +16,13 @@ const ItemSelect = ({ items, onChange, selectAll, selected, locales }) => {
       return prev;
    }, 0);
 
+   const language = locales.getLanguage();
+
    const renderCheckboxes = () =>
       items.map((item, i) => (
          <CheckBox
             key={i}
-            locale={locales.getLanguage()}
+            valute={language}
             id={item.name}
             label={item.name}
             price={item.price}
@@ -29,13 +33,17 @@ const ItemSelect = ({ items, onChange, selectAll, selected, locales }) => {
 
    return (
       <div>
-         <img src={heading} alt="choose a skibigun" width="100%" />
+         <img
+            src={language === "en" ? heading : headin_rus}
+            alt="choose a skibigun"
+            width="100%"
+         />
          <fieldset>
             {renderCheckboxes()}
             <CheckBox
-               locale={locales.getLanguage()}
+               valute={language}
                id="all"
-               label="All"
+               label="Buy all"
                price={items.reduce((prev, cur) => prev + cur.price, 0)}
                checked={
                   selected.SKIBISHOCK &&
@@ -53,7 +61,7 @@ const ItemSelect = ({ items, onChange, selectAll, selected, locales }) => {
             renderText={(value) => (
                <h1 className={styles.total}>
                   {value}
-                  {locales.getLanguage() === "ru" && " ₽"}
+                  {language === "ru" && " ₽"}
                </h1>
             )}
          />

@@ -13,15 +13,14 @@
       align-items: center;
       justify-content: space-around;
       gap: 8px;
-
       height: 100%;
 
       @media screen and (max-width: 670px) {
-         gap: 1.6vw;
+         gap: 1.3vw;
       }
 
       color: #d0d199;
-      font-family: "Aparajita", "Times New Roman", Times, serif;
+      font-family: "Aparajita", "Sylfaen";
       font-weight: 500;
 
       fieldset {
