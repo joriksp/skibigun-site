@@ -37,6 +37,7 @@ const Form = () => {
       zip: "",
       message: "",
    });
+   const [isOrdered, setOrdered] = useState(false);
 
    const handleFormChanged = (event) => {
       const { name, type, checked, value } = event.target;
@@ -56,8 +57,20 @@ const Form = () => {
       }));
    };
 
+   const totalPrice = items.reduce((prev, cur) => {
+      if (formData[cur.name]) {
+         return prev + cur.price;
+      }
+      return prev;
+   }, 0);
+
    const handleFormSend = (event) => {
       event.preventDefault();
+      if (isOrdered) {
+         return;
+      }
+      setOrdered(true);
+      console.table({ ...formData, sum: totalPrice });
    };
 
    return (
@@ -125,7 +138,7 @@ const Form = () => {
                placeholder={"Message"}
                onChange={handleFormChanged}
             />
-            <Button onClick={handleFormSend} />
+            <Button onClick={handleFormSend} ordered={isOrdered} />
          </form>
       </div>
    );
