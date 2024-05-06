@@ -5,11 +5,11 @@
          "dest": "/"
       },
       {
-         "path": "en/",
+         "path": "/en",
          "dest": "/"
       },
       {
-         "path": "ru/",
+         "path": "/ru",
          "dest": "/"
       }
    ]
