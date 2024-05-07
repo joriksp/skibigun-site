@@ -8,11 +8,12 @@ import logo from "@assets/logo.png";
 
 import skibishock from "@assets/skibishock-title.png";
 import skibicos from "@assets/skibicos-title.png";
+import skibidragon from "@assets/skibidragon-title.png";
 
 import _1 from "@assets/slides/1.png";
 import _2 from "@assets/slides/2.png";
 import _3 from "@assets/slides/3.png";
-import _4 from "@assets/slides/eng/4.png";
+import _4 from "@assets/slides/4.png";
 import _5 from "@assets/slides/eng/5.png";
 import _6 from "@assets/slides/eng/6.png";
 import HeadingFrame from "@/components/UI/HeadingFrame";
@@ -22,6 +23,8 @@ import Section from "@/components/Section";
 import ShockSword from "@/components/UI/ShockSword";
 import CosFrame from "@/components/UI/CosFrame";
 import CosSword from "@/components/UI/CosSword";
+import DragonSword from "@/components/UI/DragonSword";
+import DragonFrame from "@/components/UI/DragonFrame";
 
 const EngVersion = () => {
    return (
@@ -91,7 +94,29 @@ const EngVersion = () => {
                </p>
             </CosFrame>
          </Slide>
-         <Slide image={_4} />
+         <Slide image={_4}>
+            <DragonSword />
+            <DragonFrame>
+               <img src={skibidragon} alt={"SKIBIGUN"} width={"100%"} />
+               <p>
+                  burn everything in your path.
+                  <br />
+                  SKIBIDRAGON is able to absorb the dark
+                  <br />
+                  forces of evil by hiding them in his
+                  <br />
+                  red-hot blade. But those who dare to it
+                  <br />
+                  too often risk consuming themselves in
+                  <br />
+                  darkness. Find uniyi with the element
+                  <br />
+                  of fire and union with the
+                  <br />
+                  spirit of the dragon
+               </p>
+            </DragonFrame>
+         </Slide>
          <Slide image={_5} />
          <Slide image={_6}>
             <Form lang={"en"} />

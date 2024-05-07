@@ -1,0 +1,52 @@
+.frame {
+   position: absolute;
+   width: 61%;
+   right: 4%;
+   top: 3%;
+
+   .content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      img {
+         position: absolute;
+         width: 63%;
+         left: 17%;
+         top: 7%;
+      }
+
+      p {
+         font-family: "Sevilla Decor";
+         font-size: 1.75rem;
+         text-align: center;
+         position: absolute;
+         width: 100%;
+         top: 19%;
+         font-style: italic;
+
+         color: white;
+
+         background: hsla(223, 49%, 88%, 1);
+
+         background: rgb(178, 165, 110);
+         background: linear-gradient(
+            90deg,
+            rgba(178, 165, 110, 1) 0%,
+            rgba(242, 226, 173, 1) 53%,
+            rgba(192, 175, 121, 1) 100%
+         );
+         background-clip: text;
+         -webkit-background-clip: text;
+         -webkit-text-fill-color: rgba(255, 255, 255, 0.25);
+
+         filter: drop-shadow(0 0 2px #583601);
+
+         @media screen and (max-width: 670px) {
+            font-size: 4.12vw;
+         }
+      }
+   }
+}
