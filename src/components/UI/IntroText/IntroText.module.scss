@@ -1,0 +1,29 @@
+@mixin font($font-family, $font-file) {
+   @font-face {
+      font-family: $font-family;
+      src: url($font-file + ".eot");
+      src: url($font-file + ".eot?#iefix") format("embedded-opentype"),
+         url($font-file + ".woff") format("woff"),
+         url($font-file + ".ttf") format("truetype"),
+         url($font-file + ".svg#" + $font-family) format("svg");
+      font-weight: normal;
+      font-style: normal;
+   }
+}
+
+@include font("Aparajita", "/src/assets/fonts/Aparajita");
+
+.text {
+   color: white;
+   font-size: 1.7rem;
+   text-align: center;
+   font-family: "Aparajita", "Sylfaen";
+   filter: drop-shadow(2px 2px 1.5px rgba(0, 0, 0, 0.75));
+
+   width: 80%;
+   margin: 0 auto;
+
+   @media (max-width: 670px) {
+      font-size: 3.9vw;
+   }
+}
