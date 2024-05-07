@@ -23,3 +23,9 @@ body {
    src: url(/src/assets/fonts/Aparajita.ttf) format("truetype");
    font-weight: 500;
 }
+
+@font-face {
+   font-family: "Sevilla Decor";
+   src: url(/src/assets/fonts/sevilladecor.ttf) format("truetype");
+   font-weight: 500;
+}

@@ -18,4 +18,21 @@
       left: 21%;
       top: 2%;
    }
+
+   p {
+      font-family: "Sevilla Decor";
+      font-size: 1.73rem;
+      text-align: center;
+      position: absolute;
+      width: 100%;
+      top: 15%;
+      font-style: italic;
+
+      color: white;
+      filter: drop-shadow(0 0 2px #583601);
+
+      @media screen and (max-width: 670px) {
+         font-size: 4.1vw;
+      }
+   }
 }

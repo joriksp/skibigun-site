@@ -9,7 +9,7 @@ import logo from "@assets/logo.png";
 import skibishock from "@assets/skibishock-title.png";
 
 import _1 from "@assets/slides/1.png";
-import _2 from "@assets/slides/eng/2.png";
+import _2 from "@assets/slides/2.png";
 import _3 from "@assets/slides/eng/3.png";
 import _4 from "@assets/slides/eng/4.png";
 import _5 from "@assets/slides/eng/5.png";
@@ -45,6 +45,23 @@ const EngVersion = () => {
          <Slide image={_2}>
             <ShockFrame>
                <img src={skibishock} alt={"SKIBISHOCK"} width={"100%"} />
+               <p>
+                  shok your enemies.
+                  <br />
+                  The power of a thousand lightning
+                  <br />
+                  bolts is hidden in this skibigun.
+                  <br />
+                  SKIBISHOCK can intercept lightning
+                  <br />
+                  energy and change its blade with in.
+                  <br />
+                  SKIBISHOCK will illuminate
+                  <br />
+                  the darkestand most
+                  <br />
+                  dangerous path.
+               </p>
             </ShockFrame>
          </Slide>
          <Slide image={_3} />
