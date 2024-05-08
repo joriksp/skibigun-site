@@ -43,7 +43,7 @@ const ItemSelect = ({ items, onChange, selectAll, selected, locales }) => {
             <CheckBox
                valute={language}
                id="all"
-               label="Buy all"
+               label={locales.buyAll}
                price={items.reduce((prev, cur) => prev + cur.price, 0)}
                checked={
                   selected.SKIBISHOCK &&

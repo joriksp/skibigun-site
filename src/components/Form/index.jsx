@@ -55,6 +55,7 @@ const Form = ({ lang }) => {
          housePlaceholder: "House",
          zipPlaceholder: "Zip",
          messagePlaceholder: "Message",
+         buyAll: "Buy all",
       },
       ru: {
          totalHeading: "Итого ",
@@ -70,6 +71,7 @@ const Form = ({ lang }) => {
          housePlaceholder: "Квартира/дом",
          zipPlaceholder: "Почтовый индекс",
          messagePlaceholder: "Сообщение",
+         buyAll: "КУПИТЬ ВСЁ",
       },
    });
 

@@ -12,8 +12,12 @@
    width: 100%;
    height: 100%;
 
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+
    img {
-      position: absolute;
       width: 57%;
       left: 21%;
       top: 2%;
@@ -23,9 +27,7 @@
       font-family: "Sevilla Decor";
       font-size: 1.73rem;
       text-align: center;
-      position: absolute;
       width: 100%;
-      top: 15%;
       font-style: italic;
 
       color: white;

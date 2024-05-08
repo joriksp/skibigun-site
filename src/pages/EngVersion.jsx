@@ -26,6 +26,7 @@ import CosSword from "@/components/UI/CosSword";
 import DragonSword from "@/components/UI/DragonSword";
 import DragonFrame from "@/components/UI/DragonFrame";
 import Adventages from "@/components/Advantages";
+import DescriptionFrame from "@/components/UI/ShockFrame";
 
 const EngVersion = () => {
    return (
@@ -53,7 +54,7 @@ const EngVersion = () => {
          </Section>
          <Slide image={_2}>
             <ShockSword />
-            <ShockFrame>
+            <DescriptionFrame x={"39"} y={"7"}>
                <img src={skibishock} alt={"SKIBISHOCK"} width={"100%"} />
                <p>
                   shok your enemies.
@@ -72,7 +73,7 @@ const EngVersion = () => {
                   <br />
                   dangerous path.
                </p>
-            </ShockFrame>
+            </DescriptionFrame>
          </Slide>
          <Slide image={_3} zIndex={1}>
             <CosSword />

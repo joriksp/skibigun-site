@@ -33,10 +33,10 @@ const CheckBox: React.FC<Props> = ({
          <CurrencyFormat
             value={price}
             displayType={"text"}
-            thousandSeparator={true}
+            thousandSeparator={" "}
             renderText={(value) => (
                <p>
-                  {value} {valute === "en" ? "$" : "₽"}
+                  {valute === "en" && "$"} {value} {valute === "ru" && "₽"}
                </p>
             )}
          />
