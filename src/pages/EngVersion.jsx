@@ -12,6 +12,7 @@ import skibidragon from "@assets/skibidragon-title.png";
 
 import shockframe from "@assets/shock-frame.png"
 import cosframe from "@assets/cos-frame.png"
+import dragonframe from "@assets/dragon-frame.png"
 
 import _1 from "@assets/slides/1.png";
 import _2 from "@assets/slides/2.png";
@@ -23,7 +24,6 @@ import HeadingFrame from "@/components/UI/HeadingFrame";
 import IntroText from "@/components/UI/IntroText";
 import Section from "@/components/Section";
 import ShockSword from "@/components/UI/ShockSword";
-import CosFrame from "@/components/UI/CosFrame";
 import CosSword from "@/components/UI/CosSword";
 import DragonSword from "@/components/UI/DragonSword";
 import DragonFrame from "@/components/UI/DragonFrame";
@@ -100,8 +100,8 @@ const EngVersion = () => {
          </Slide>
          <Slide image={_4}>
             <DragonSword />
-            <DragonFrame>
-               <img src={skibidragon} alt={"SKIBIGUN"} width={"100%"} />
+            <DescriptionFrame x={35} y={3} width={61} frame={dragonframe}>
+               <img src={skibidragon} alt={"SKIBIGUN"} width={"55%"} />
                <p>
                   burn everything in your path.
                   <br />
@@ -119,7 +119,7 @@ const EngVersion = () => {
                   <br />
                   spirit of the dragon
                </p>
-            </DragonFrame>
+            </DescriptionFrame>
          </Slide>
          <Slide image={_5}>
             <Adventages />

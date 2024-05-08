@@ -1,6 +1,12 @@
 @keyframes flashing {
    0% {
-      filter: brightness();
+      scale: 1;
+   }
+   50% {
+      scale: 1.05;
+   }
+   100% {
+      scale: 1;
    }
 }
 
@@ -54,6 +60,10 @@ input[type="checkbox"] {
       display: block;
       width: 20px;
       height: 20px;
+
+      animation-name: flashing;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
 
       @media screen and (max-width: 670px) {
          width: 3vw;
