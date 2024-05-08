@@ -20,14 +20,13 @@ import _3 from "@assets/slides/3.png";
 import _4 from "@assets/slides/4.png";
 import _5 from "@assets/slides/eng/5.png";
 import _6 from "@assets/slides/6.png";
+
 import HeadingFrame from "@/components/UI/HeadingFrame";
 import IntroText from "@/components/UI/IntroText";
 import Section from "@/components/Section";
 import ShockSword from "@/components/UI/ShockSword";
 import CosSword from "@/components/UI/CosSword";
 import DragonSword from "@/components/UI/DragonSword";
-import DragonFrame from "@/components/UI/DragonFrame";
-import Adventages from "@/components/Advantages";
 import DescriptionFrame from "@/components/UI/DescriptionFrame";
 
 const EngVersion = () => {
@@ -121,9 +120,7 @@ const EngVersion = () => {
                </p>
             </DescriptionFrame>
          </Slide>
-         <Slide image={_5}>
-            <Adventages />
-         </Slide>
+         <Slide image={_5} />
          <Slide image={_6}>
             <Form lang={"en"} />
          </Slide>
