@@ -7,6 +7,7 @@ import CheckBox from "../CheckBox";
 
 import heading from "@assets/slides/eng/chooseaskibigun.png";
 import headin_rus from "@assets/slides/rus/chooseaskibigun.png";
+import FormTitle from "@/components/UI/FormTitle";
 
 const ItemSelect = ({ items, onChange, selectAll, selected, locales }) => {
    const totalPrice = items.reduce((prev, cur) => {
@@ -33,11 +34,7 @@ const ItemSelect = ({ items, onChange, selectAll, selected, locales }) => {
 
    return (
       <div>
-         <img
-            src={language === "en" ? heading : headin_rus}
-            alt="choose a skibigun"
-            width="100%"
-         />
+         <FormTitle text={locales.formTitle} />
          <fieldset>
             {renderCheckboxes()}
             <CheckBox
@@ -56,12 +53,11 @@ const ItemSelect = ({ items, onChange, selectAll, selected, locales }) => {
          <CurrencyFormat
             value={totalPrice}
             displayType={"text"}
-            thousandSeparator={true}
+            thousandSeparator={" "}
             prefix={locales.totalHeading}
             renderText={(value) => (
                <h1 className={styles.total}>
-                  {value}
-                  {language === "ru" && " ₽"}
+                  {value} <span style={{ fontFamily: `"Inter Tight", sans-serif`, fontSize: "75%", fontWeight: "500" }}>{language === "ru" && " ₽"}</span>
                </h1>
             )}
          />

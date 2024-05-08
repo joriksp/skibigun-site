@@ -30,6 +30,7 @@ const Form = ({ lang }) => {
       phone: "",
       fname: "",
       lname: "",
+      surname: "",
       country: "",
       city: "",
       state: "",
@@ -47,6 +48,7 @@ const Form = ({ lang }) => {
          phonePlaceholder: "Phone number",
          fnamePlaceholder: "First name",
          lnamePlaceholder: "Last name",
+         surnamePlaceholder: "Surname",
          shippingAddressHeading: "Shipping Address",
          countryPlaceholder: "Country",
          cityPlaceholder: "City",
@@ -55,7 +57,8 @@ const Form = ({ lang }) => {
          housePlaceholder: "House",
          zipPlaceholder: "Zip",
          messagePlaceholder: "Message",
-         buyAll: "Buy all",
+         buyAll: "BUY ALL",
+         formTitle: "Choose a SKIBIGUN",
       },
       ru: {
          totalHeading: "Итого ",
@@ -63,6 +66,7 @@ const Form = ({ lang }) => {
          phonePlaceholder: "Номер телефона",
          fnamePlaceholder: "Имя",
          lnamePlaceholder: "Фамилия",
+         surnamePlaceholder: "Отчество",
          shippingAddressHeading: "Адрес доставки",
          countryPlaceholder: "Страна",
          cityPlaceholder: "Город",
@@ -72,6 +76,7 @@ const Form = ({ lang }) => {
          zipPlaceholder: "Почтовый индекс",
          messagePlaceholder: "Сообщение",
          buyAll: "КУПИТЬ ВСЁ",
+         formTitle: "Выбери свой SKIBIGUN",
       },
    });
 
@@ -104,9 +109,31 @@ const Form = ({ lang }) => {
       return prev;
    }, 0);
 
+   const validate = () => {
+      let errors = [];
+      for (let key of Object.keys(formData)) {
+         if (formData[key] === "" || formData[key] === undefined) {
+            if (!(key === "surname" && lang === "en")) {
+               errors.push({
+                  field: key,
+                  msg: "Required",
+               });
+            }
+         }
+      }
+      return errors;
+   };
+
    const handleFormSend = (event) => {
       event.preventDefault();
       if (isOrdered) {
+         return;
+      }
+
+      let errors = validate();
+
+      if (errors.length) {
+         console.dir(errors)
          return;
       }
       setOrdered(true);
@@ -143,6 +170,13 @@ const Form = ({ lang }) => {
                placeholder={strings.lnamePlaceholder}
                onChange={handleFormChanged}
             />
+            {lang == "ru" && (
+               <TextInput
+                  name={"surname"}
+                  placeholder={strings.surnamePlaceholder}
+                  onChange={handleFormChanged}
+               />
+            )}
             <h1 className={styles.heading}>{strings.shippingAddressHeading}</h1>
             <TextInput
                name={"country"}

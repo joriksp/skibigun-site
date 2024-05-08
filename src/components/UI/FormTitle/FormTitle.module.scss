@@ -1,0 +1,30 @@
+.input_container {
+   width: 100%;
+   position: relative;
+
+   .bg {
+      position: relative;
+      z-index: 0;
+      width: 100%;
+      display: block;
+   }
+
+   p {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+
+      font-size: 24px;
+      color: white;
+
+      @media screen and (max-width: 670px) {
+         font-size: 3.6vw;
+      }
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   }
+}
