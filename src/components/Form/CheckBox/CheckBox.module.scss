@@ -1,3 +1,9 @@
+@keyframes flashing {
+   0% {
+      filter: brightness();
+   }
+}
+
 .item {
    display: flex;
    justify-content: space-between;

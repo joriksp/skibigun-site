@@ -40,6 +40,7 @@ const Form = ({ lang }) => {
       message: "",
    });
    const [isOrdered, setOrdered] = useState(false);
+   const [error, setError] = useState("");
 
    let strings = new LocalizedStrings({
       en: {
@@ -59,6 +60,7 @@ const Form = ({ lang }) => {
          messagePlaceholder: "Message",
          buyAll: "BUY ALL",
          formTitle: "Choose a SKIBIGUN",
+         fillAllError: "Fill in all the fields",
       },
       ru: {
          totalHeading: "Итого ",
@@ -75,8 +77,9 @@ const Form = ({ lang }) => {
          housePlaceholder: "Квартира/дом",
          zipPlaceholder: "Почтовый индекс",
          messagePlaceholder: "Сообщение",
-         buyAll: "КУПИТЬ ВСЁ",
+         buyAll: "Купить все",
          formTitle: "Выбери свой SKIBIGUN",
+         fillAllError: "Заполните все поля",
       },
    });
 
@@ -86,6 +89,7 @@ const Form = ({ lang }) => {
 
    const handleFormChanged = (event) => {
       const { name, type, checked, value } = event.target;
+      setError("");
       setFormData((prev) => ({
          ...prev,
          [name]: type === "checkbox" ? checked : value,
@@ -134,8 +138,10 @@ const Form = ({ lang }) => {
 
       if (errors.length) {
          console.dir(errors)
+         setError(strings.fillAllError)
          return;
       }
+
       setOrdered(true);
       console.table({ ...formData, sum: totalPrice });
    };
@@ -213,6 +219,7 @@ const Form = ({ lang }) => {
                placeholder={strings.messagePlaceholder}
                onChange={handleFormChanged}
             />
+            {error && <p className={styles.error}>{error}</p>}
             <Button
                onClick={handleFormSend}
                ordered={isOrdered}

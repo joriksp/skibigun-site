@@ -10,6 +10,9 @@ import skibishock from "@assets/skibishock-title.png";
 import skibicos from "@assets/skibicos-title.png";
 import skibidragon from "@assets/skibidragon-title.png";
 
+import shockframe from "@assets/shock-frame.png"
+import cosframe from "@assets/cos-frame.png"
+
 import _1 from "@assets/slides/1.png";
 import _2 from "@assets/slides/2.png";
 import _3 from "@assets/slides/3.png";
@@ -53,8 +56,8 @@ const EngVersion = () => {
          </Section>
          <Slide image={_2}>
             <ShockSword />
-            <DescriptionFrame x={"39"} y={"7"}>
-               <img src={skibishock} alt={"SKIBISHOCK"} width={"100%"} />
+            <DescriptionFrame x={39} y={7} width={56} frame={shockframe}>
+               <img src={skibishock} alt={"SKIBISHOCK"} width={"58%"} />
                <p>
                   shok your enemies.
                   <br />
@@ -76,8 +79,8 @@ const EngVersion = () => {
          </Slide>
          <Slide image={_3} zIndex={1}>
             <CosSword />
-            <CosFrame>
-               <img src={skibicos} alt={"SKIBICOS"} width={"100%"} />
+            <DescriptionFrame x={5} y={7} width={61} frame={cosframe}>
+               <img src={skibicos} alt={"SKIBICOS"} width={"54%"} />
                <p>
                   the energy of space and stars
                   <br />
@@ -93,7 +96,7 @@ const EngVersion = () => {
                   <br />
                   must save her planet
                </p>
-            </CosFrame>
+            </DescriptionFrame>
          </Slide>
          <Slide image={_4}>
             <DragonSword />

@@ -18,8 +18,17 @@
          gap: 1.3vw;
       }
 
+      .error {
+         color: white;
+         font-size: 22px;
+
+         @media screen and (max-width: 670px) {
+            font-size: 3.5vw;
+         }
+      }
+
       color: #d0d199;
-      font-family: "Aparajita", "Sylfaen";
+      font-family: "Aparajita", "Sylfaen", 'Times New Roman', Times, serif;
       font-weight: 500;
 
       fieldset {

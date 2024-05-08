@@ -1,12 +1,11 @@
 import React from "react";
 import styles from "./DescriptionFrame.module.scss";
 
-import frame from "@assets/shock-frame.png";
-
-const DescriptionFrame = ({ children, x, y }) => {
+const DescriptionFrame = ({ children, x, y, frame, width }) => {
    const additionalStyles = {
       left: `${x}%`,
-      right: `${y}%`,
+      top: `${y}%`,
+      width: `${width}%`,
    }
 
    return (

@@ -14,6 +14,10 @@ body {
    padding: 0;
 }
 
+img {
+   user-select: none;
+}
+
 @font-face {
    font-family: "Sylfaen";
    src: url(/src/assets/fonts/Sylfaen.ttf) format("truetype");
