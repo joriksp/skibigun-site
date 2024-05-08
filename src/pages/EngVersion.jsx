@@ -25,6 +25,7 @@ import CosFrame from "@/components/UI/CosFrame";
 import CosSword from "@/components/UI/CosSword";
 import DragonSword from "@/components/UI/DragonSword";
 import DragonFrame from "@/components/UI/DragonFrame";
+import Adventages from "@/components/Advantages";
 
 const EngVersion = () => {
    return (
@@ -117,7 +118,9 @@ const EngVersion = () => {
                </p>
             </DragonFrame>
          </Slide>
-         <Slide image={_5} />
+         <Slide image={_5}>
+            <Adventages />
+         </Slide>
          <Slide image={_6}>
             <Form lang={"en"} />
          </Slide>
