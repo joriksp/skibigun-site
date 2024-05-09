@@ -7,227 +7,241 @@ import ItemSelect from "./ItemSelect";
 import LocalizedStrings from "react-localization";
 
 const items = [
-   {
-      name: "SKIBISHOCK",
-      price: 1000,
-   },
-   {
-      name: "SKIBICOS",
-      price: 1000,
-   },
-   {
-      name: "SKIBIDRAGON",
-      price: 1000,
-   },
+  {
+    name: "SKIBISHOCK",
+    price: 1000,
+  },
+  {
+    name: "SKIBICOS",
+    price: 1000,
+  },
+  {
+    name: "SKIBIDRAGON",
+    price: 1000,
+  },
 ];
 
 const Form = ({ lang }) => {
-   const [formData, setFormData] = useState({
-      SKIBISHOCK: false,
-      SKIBICOS: false,
-      SKIBIDRAGON: false,
-      "e-mail": "",
-      phone: "",
-      fname: "",
-      lname: "",
-      surname: "",
-      country: "",
-      city: "",
-      state: "",
-      street: "",
-      house: "",
-      zip: "",
-      message: "",
-   });
-   const [isOrdered, setOrdered] = useState(false);
-   const [error, setError] = useState("");
+  const [formData, setFormData] = useState({
+    SKIBISHOCK: false,
+    SKIBICOS: false,
+    SKIBIDRAGON: false,
+    email: "",
+    phone: "",
+    fname: "",
+    lname: "",
+    surname: "",
+    country: "",
+    city: "",
+    state: "",
+    street: "",
+    house: "",
+    zip: "",
+    message: "",
+  });
+  const [isOrdered, setOrdered] = useState(false);
+  const [error, setError] = useState("");
 
-   let strings = new LocalizedStrings({
-      en: {
-         totalHeading: "Total price $ ",
-         emailPlaceholder: "Your e-mail address",
-         phonePlaceholder: "Phone number",
-         fnamePlaceholder: "First name",
-         lnamePlaceholder: "Last name",
-         surnamePlaceholder: "Surname",
-         shippingAddressHeading: "Shipping Address",
-         countryPlaceholder: "Country",
-         cityPlaceholder: "City",
-         statePlaceholder: "State",
-         streetPlaceholder: "Street",
-         housePlaceholder: "House",
-         zipPlaceholder: "Zip",
-         messagePlaceholder: "Message",
-         buyAll: "BUY ALL",
-         formTitle: "Choose a SKIBIGUN",
-         fillAllError: "Fill in all the fields",
-      },
-      ru: {
-         totalHeading: "Итого ",
-         emailPlaceholder: "Ваш адрес эл. почты",
-         phonePlaceholder: "Номер телефона",
-         fnamePlaceholder: "Имя",
-         lnamePlaceholder: "Фамилия",
-         surnamePlaceholder: "Отчество",
-         shippingAddressHeading: "Адрес доставки",
-         countryPlaceholder: "Страна",
-         cityPlaceholder: "Город",
-         statePlaceholder: "Регион",
-         streetPlaceholder: "Улица",
-         housePlaceholder: "Квартира/дом",
-         zipPlaceholder: "Почтовый индекс",
-         messagePlaceholder: "Сообщение",
-         buyAll: "Купить все",
-         formTitle: "Выбери свой SKIBIGUN",
-         fillAllError: "Заполните все поля",
-      },
-   });
+  let strings = new LocalizedStrings({
+    en: {
+      totalHeading: "Total price $ ",
+      emailPlaceholder: "Your e-mail address",
+      phonePlaceholder: "Phone number",
+      fnamePlaceholder: "First name",
+      lnamePlaceholder: "Last name",
+      surnamePlaceholder: "Surname",
+      shippingAddressHeading: "Shipping Address",
+      countryPlaceholder: "Country",
+      cityPlaceholder: "City",
+      statePlaceholder: "State",
+      streetPlaceholder: "Street",
+      housePlaceholder: "House",
+      zipPlaceholder: "Zip",
+      messagePlaceholder: "Message",
+      buyAll: "BUY ALL",
+      formTitle: "Choose a SKIBIGUN",
+      fillAllError: "Fill in all the fields",
+      formInfo:
+        "Full out the purchase order form, our manager will contact you by email for payment.",
+    },
+    ru: {
+      totalHeading: "Итого ",
+      emailPlaceholder: "Ваш адрес эл. почты",
+      phonePlaceholder: "Номер телефона",
+      fnamePlaceholder: "Имя",
+      lnamePlaceholder: "Фамилия",
+      surnamePlaceholder: "Отчество",
+      shippingAddressHeading: "Адрес доставки",
+      countryPlaceholder: "Страна",
+      cityPlaceholder: "Город",
+      statePlaceholder: "Регион",
+      streetPlaceholder: "Улица",
+      housePlaceholder: "Квартира/дом",
+      zipPlaceholder: "Почтовый индекс",
+      messagePlaceholder: "Сообщение",
+      buyAll: "Купить все",
+      formTitle: "Выбери свой SKIBIGUN",
+      fillAllError: "Заполните все поля",
+      formInfo:
+        "Заполните форму для покупки, наш менеджер свяжется с вами по электронной почте для оплаты.",
+    },
+  });
 
-   if (lang) {
-      strings.setLanguage(lang);
-   }
+  if (lang) {
+    strings.setLanguage(lang);
+  }
 
-   const handleFormChanged = (event) => {
-      const { name, type, checked, value } = event.target;
-      setError("");
-      setFormData((prev) => ({
-         ...prev,
-         [name]: type === "checkbox" ? checked : value,
-      }));
-   };
+  const handleFormChanged = (event) => {
+    const { name, type, checked, value } = event.target;
+    setError("");
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+  };
 
-   const handleItemSelectAll = (event) => {
-      const { name, checked } = event.target;
-      setFormData((prev) => ({
-         ...prev,
-         SKIBISHOCK: checked,
-         SKIBICOS: checked,
-         SKIBIDRAGON: checked,
-      }));
-   };
+  const handleItemSelectAll = (event) => {
+    const { checked } = event.target;
+    setFormData((prev) => ({
+      ...prev,
+      SKIBISHOCK: checked,
+      SKIBICOS: checked,
+      SKIBIDRAGON: checked,
+    }));
+  };
 
-   const totalPrice = items.reduce((prev, cur) => {
-      if (formData[cur.name]) {
-         return prev + cur.price;
+  const totalPrice = items.reduce((prev, cur) => {
+    if (formData[cur.name]) {
+      return prev + cur.price;
+    }
+    return prev;
+  }, 0);
+
+  const validate = () => {
+    let errors = [];
+    for (let key of Object.keys(formData)) {
+      if (formData[key] === "" || formData[key] === undefined) {
+        if (!(key === "surname" && lang === "en")) {
+          errors.push({
+            field: key,
+            msg: "Required",
+          });
+        }
       }
-      return prev;
-   }, 0);
+    }
+    return errors;
+  };
 
-   const validate = () => {
-      let errors = [];
-      for (let key of Object.keys(formData)) {
-         if (formData[key] === "" || formData[key] === undefined) {
-            if (!(key === "surname" && lang === "en")) {
-               errors.push({
-                  field: key,
-                  msg: "Required",
-               });
-            }
-         }
-      }
-      return errors;
-   };
+  const handleFormSend = (event) => {
+    event.preventDefault();
 
-   const handleFormSend = (event) => {
-      event.preventDefault();
-      if (isOrdered) {
-         return;
-      }
+    if (isOrdered) return;
 
-      let errors = validate();
+    const errors = validate();
 
-      if (errors.length) {
-         console.dir(errors)
-         setError(strings.fillAllError)
-         return;
-      }
+    if (errors.length) {
+      console.dir(errors);
+      setError(strings.fillAllError);
+      return;
+    }
 
-      setOrdered(true);
-      console.table({ ...formData, sum: totalPrice });
-   };
+    setOrdered(true);
+    console.table({ ...formData, sum: totalPrice });
 
-   return (
-      <div className={styles.form_container}>
-         <form autoComplete="off">
-            <ItemSelect
-               items={items}
-               selected={formData}
-               onChange={handleFormChanged}
-               selectAll={handleItemSelectAll}
-               locales={strings}
-            />
-            <TextInput
-               name={"e-mail"}
-               placeholder={strings.emailPlaceholder}
-               onChange={handleFormChanged}
-            />
-            <TextInput
-               name={"phone"}
-               placeholder={strings.phonePlaceholder}
-               onChange={handleFormChanged}
-            />
-            <TextInput
-               name={"fname"}
-               placeholder={strings.fnamePlaceholder}
-               onChange={handleFormChanged}
-            />
-            <TextInput
-               name={"lname"}
-               placeholder={strings.lnamePlaceholder}
-               onChange={handleFormChanged}
-            />
-            {lang == "ru" && (
-               <TextInput
-                  name={"surname"}
-                  placeholder={strings.surnamePlaceholder}
-                  onChange={handleFormChanged}
-               />
-            )}
-            <h1 className={styles.heading}>{strings.shippingAddressHeading}</h1>
-            <TextInput
-               name={"country"}
-               placeholder={strings.countryPlaceholder}
-               onChange={handleFormChanged}
-            />
-            <TextInput
-               name={"city"}
-               placeholder={strings.cityPlaceholder}
-               onChange={handleFormChanged}
-            />
-            <TextInput
-               name={"state"}
-               placeholder={strings.statePlaceholder}
-               onChange={handleFormChanged}
-            />
-            <TextInput
-               name={"street"}
-               placeholder={strings.streetPlaceholder}
-               onChange={handleFormChanged}
-            />
-            <TextInput
-               name={"house"}
-               placeholder={strings.housePlaceholder}
-               onChange={handleFormChanged}
-            />
-            <TextInput
-               name={"zip"}
-               placeholder={strings.zipPlaceholder}
-               onChange={handleFormChanged}
-            />
-            <TextInput
-               name={"message"}
-               placeholder={strings.messagePlaceholder}
-               onChange={handleFormChanged}
-            />
-            {error && <p className={styles.error}>{error}</p>}
-            <Button
-               onClick={handleFormSend}
-               ordered={isOrdered}
-               locale={lang}
-            />
-         </form>
-      </div>
-   );
+    fetch("http://localhost:4444/sendorder", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ...formData, sum: totalPrice }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        alert(`Order sent successfully!`);
+      })
+      .catch((error) => {
+        console.error("Error sending order:", error);
+        alert("Error sending order. Please try again.");
+      });
+  };
+
+  return (
+    <div className={styles.form_container}>
+      <form autoComplete="off">
+        <ItemSelect
+          items={items}
+          selected={formData}
+          onChange={handleFormChanged}
+          selectAll={handleItemSelectAll}
+          locales={strings}
+        />
+        <TextInput
+          name={"email"}
+          placeholder={strings.emailPlaceholder}
+          onChange={handleFormChanged}
+        />
+        <TextInput
+          name={"phone"}
+          placeholder={strings.phonePlaceholder}
+          onChange={handleFormChanged}
+        />
+        <TextInput
+          name={"fname"}
+          placeholder={strings.fnamePlaceholder}
+          onChange={handleFormChanged}
+        />
+        <TextInput
+          name={"lname"}
+          placeholder={strings.lnamePlaceholder}
+          onChange={handleFormChanged}
+        />
+        {lang == "ru" && (
+          <TextInput
+            name={"surname"}
+            placeholder={strings.surnamePlaceholder}
+            onChange={handleFormChanged}
+          />
+        )}
+        <h1 className={styles.heading}>{strings.shippingAddressHeading}</h1>
+        <TextInput
+          name={"country"}
+          placeholder={strings.countryPlaceholder}
+          onChange={handleFormChanged}
+        />
+        <TextInput
+          name={"city"}
+          placeholder={strings.cityPlaceholder}
+          onChange={handleFormChanged}
+        />
+        <TextInput
+          name={"state"}
+          placeholder={strings.statePlaceholder}
+          onChange={handleFormChanged}
+        />
+        <TextInput
+          name={"street"}
+          placeholder={strings.streetPlaceholder}
+          onChange={handleFormChanged}
+        />
+        <TextInput
+          name={"house"}
+          placeholder={strings.housePlaceholder}
+          onChange={handleFormChanged}
+        />
+        <TextInput
+          name={"zip"}
+          placeholder={strings.zipPlaceholder}
+          onChange={handleFormChanged}
+        />
+        <TextInput
+          name={"message"}
+          placeholder={strings.messagePlaceholder}
+          onChange={handleFormChanged}
+        />
+        {error && <p className={styles.error}>{error}</p>}
+        <Button onClick={handleFormSend} ordered={isOrdered} locale={lang} />
+        <p className={styles.info}>{strings.formInfo}</p>
+      </form>
+    </div>
+  );
 };
 
 export default Form;
