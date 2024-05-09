@@ -1,37 +1,37 @@
 .frame {
-   width: 56%;
-   right: 7%;
-   top: 7%;
-   position: absolute;
+  width: 56%;
+  right: 7%;
+  top: 7%;
+  position: absolute;
 }
 
 .content {
-   position: absolute;
-   top: 0;
-   left: 0;
-   width: 100%;
-   height: 100%;
-   padding-top: 5%;
-   padding-bottom: 5%;
-   
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   gap: 1%;
-   align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 5%;
+  padding-bottom: 6%;
 
-   p {
-      font-family: "Sevilla Decor";
-      font-size: 1.73rem;
-      text-align: center;
-      width: 100%;
-      font-style: italic;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1%;
+  align-items: center;
 
-      color: white;
-      filter: drop-shadow(0 0 2px #583601);
+  p {
+    font-family: "Sevilla Decor";
+    font-size: 1.73rem;
+    text-align: center;
+    width: 100%;
+    font-style: italic;
 
-      @media screen and (max-width: 670px) {
-         font-size: 4.1vw;
-      }
-   }
+    color: white;
+    filter: drop-shadow(0 0 2px #583601);
+
+    @media screen and (max-width: 670px) {
+      font-size: 4.1vw;
+    }
+  }
 }
