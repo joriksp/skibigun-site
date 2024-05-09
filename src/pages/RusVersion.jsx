@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import Main from "@components/Main";
 import Slide from "@components/Slide";
@@ -20,6 +21,7 @@ import _3 from "@assets/slides/3.png";
 import _4 from "@assets/slides/4.png";
 import _5 from "@assets/slides/rus/5.png";
 import _6 from "@assets/slides/6.png";
+import _7 from "@assets/slides/7.png";
 
 import Section from "@/components/Section";
 import HeadingFrame from "@/components/UI/HeadingFrame";
@@ -28,6 +30,7 @@ import ShockSword from "@/components/UI/ShockSword";
 import DescriptionFrame from "@/components/UI/DescriptionFrame";
 import CosSword from "@/components/UI/CosSword";
 import DragonSword from "@/components/UI/DragonSword";
+import CopyrightText from "@/components/UI/CopyrightText";
 
 const RusVersion = () => {
   return (
@@ -123,6 +126,21 @@ const RusVersion = () => {
       <Slide image={_6}>
         <Form lang={"ru"} />
       </Slide>
+      <Section image={_7}>
+        <HeadingFrame glare={false}>
+          Стань избранным
+          <br />
+          Выбери свой SKIBIGUN
+        </HeadingFrame>
+        <CopyrightText>
+          Copyright 2024 SKIBIGUN
+          <br />
+          Все права защищены | <Link to={"#"}>
+            Политика конфиденциальности
+          </Link>{" "}
+          | <Link to={"#"}>Условия использования</Link>
+        </CopyrightText>
+      </Section>
     </Main>
   );
 };
