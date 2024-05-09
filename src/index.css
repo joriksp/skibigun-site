@@ -1,49 +1,50 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:wght@100..900&display=swap");
 
 body {
-  margin: 0;
-  padding: 0;
-  background: #000;
+   margin: 0;
+   padding: 0;
+   background: #000;
+   color: white;
 }
 
 *,
 *::after,
 *::before {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
 }
 
 img {
-  user-select: none;
+   user-select: none;
 }
 
 @font-face {
-  font-family: "Sylfaen";
-  src: url(/src/assets/fonts/Sylfaen.ttf) format("truetype");
-  font-weight: 500;
+   font-family: "Sylfaen";
+   src: url(/src/assets/fonts/Sylfaen.ttf) format("truetype");
+   font-weight: 500;
 }
 
 @font-face {
-  font-family: "Aparajita";
-  src: url(/src/assets/fonts/Aparajita.ttf) format("truetype");
-  font-weight: 500;
+   font-family: "Aparajita";
+   src: url(/src/assets/fonts/Aparajita.ttf) format("truetype");
+   font-weight: 500;
 }
 
 @font-face {
-  font-family: "Sevilla Decor";
-  src: url(/src/assets/fonts/sevilladecor.ttf) format("truetype");
-  font-weight: 500;
+   font-family: "Sevilla Decor";
+   src: url(/src/assets/fonts/sevilladecor.ttf) format("truetype");
+   font-weight: 500;
 }
 
 @font-face {
-  font-family: "Algerian";
-  src: url(/src/assets/fonts/Algerian.ttf) format("truetype");
-  font-weight: 500;
+   font-family: "Algerian";
+   src: url(/src/assets/fonts/Algerian.ttf) format("truetype");
+   font-weight: 500;
 }
 
 @font-face {
-  font-family: "Algeria One";
-  src: url(/src/assets/fonts/Algeria\ One.ttf) format("truetype");
-  font-weight: 500;
+   font-family: "Algeria One";
+   src: url(/src/assets/fonts/Algeria\ One.ttf) format("truetype");
+   font-weight: 500;
 }

@@ -1,0 +1,13 @@
+.content {
+   padding: 25px;
+   background: url(/src/assets/slides/1.png);
+   background-size: cover;
+   background-attachment: fixed;
+
+   font-family: "Aparajita", "Sylfaen", "Times New Roman", Times, serif;
+   font-size: 1.2rem;
+
+   :not(:last-child) {
+      margin-bottom: 15px;
+   }
+}
