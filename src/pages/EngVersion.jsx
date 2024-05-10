@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import Main from "@components/Main";
 import Slide from "@components/Slide";
@@ -6,13 +7,9 @@ import Form from "@components/Form";
 
 import logo from "@assets/logo.png";
 
-import skibishock from "@assets/skibishock-title.png";
-import skibicos from "@assets/skibicos-title.png";
-import skibidragon from "@assets/skibidragon-title.png";
-
-import shockframe from "@assets/shock-frame.png";
-import cosframe from "@assets/cos-frame.png";
-import dragonframe from "@assets/dragon-frame.png";
+import shockframe from "@assets/slides/eng/skibishock-frame.png";
+import cosframe from "@assets/slides/eng/skibicos-frame.png";
+import dragonframe from "@assets/slides/eng/skibidragon-frame.png";
 
 import _1 from "@assets/slides/1.png";
 import _2 from "@assets/slides/2.png";
@@ -29,7 +26,6 @@ import ShockSword from "@/components/UI/ShockSword";
 import CosSword from "@/components/UI/CosSword";
 import DragonSword from "@/components/UI/DragonSword";
 import DescriptionFrame from "@/components/UI/DescriptionFrame";
-import { Link } from "react-router-dom";
 import CopyrightText from "@/components/UI/CopyrightText";
 
 const EngVersion = () => {
@@ -58,70 +54,15 @@ const EngVersion = () => {
          </Section>
          <Slide image={_2}>
             <ShockSword />
-            <DescriptionFrame x={39} y={7} width={56} frame={shockframe}>
-               <img src={skibishock} alt={"SKIBISHOCK"} width={"58%"} />
-               <p>
-                  shok your enemies.
-                  <br />
-                  The power of a thousand lightning
-                  <br />
-                  bolts is hidden in this skibigun.
-                  <br />
-                  SKIBISHOCK can intercept lightning
-                  <br />
-                  energy and change its blade with in.
-                  <br />
-                  SKIBISHOCK will illuminate
-                  <br />
-                  the darkestand most
-                  <br />
-                  dangerous path.
-               </p>
-            </DescriptionFrame>
+            <DescriptionFrame x={39} y={7} width={56} frame={shockframe} />
          </Slide>
          <Slide image={_3} zIndex={1}>
             <CosSword />
-            <DescriptionFrame x={5} y={7} width={61} frame={cosframe}>
-               <img src={skibicos} alt={"SKIBICOS"} width={"54%"} />
-               <p>
-                  the energy of space and stars
-                  <br />
-                  is in your hands. The most mysterious
-                  <br />
-                  SKIBIGUN that can heal. SKIBICOS
-                  <br />
-                  is capable of extracting power from stars,
-                  <br />
-                  converting it into cosmic radiation.
-                  <br />
-                  With this help SKIBICOSMICA
-                  <br />
-                  must save her planet
-               </p>
-            </DescriptionFrame>
+            <DescriptionFrame x={5} y={7} width={61} frame={cosframe} />
          </Slide>
          <Slide image={_4}>
             <DragonSword />
-            <DescriptionFrame x={35} y={3} width={61} frame={dragonframe}>
-               <img src={skibidragon} alt={"SKIBIGUN"} width={"55%"} />
-               <p>
-                  burn everything in your path.
-                  <br />
-                  SKIBIDRAGON is able to absorb the dark
-                  <br />
-                  forces of evil by hiding them in his
-                  <br />
-                  red-hot blade. But those who dare to it
-                  <br />
-                  too often risk consuming themselves in
-                  <br />
-                  darkness. Find uniyi with the element
-                  <br />
-                  of fire and union with the
-                  <br />
-                  spirit of the dragon
-               </p>
-            </DescriptionFrame>
+            <DescriptionFrame x={35} y={3} width={61} frame={dragonframe} />
          </Slide>
          <Slide image={_5} />
          <Slide image={_6}>

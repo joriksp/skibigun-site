@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 import Main from "@components/Main";
 import Slide from "@components/Slide";
@@ -7,13 +6,9 @@ import Form from "@components/Form";
 
 import logo from "@assets/logo.png";
 
-import skibishock from "@assets/skibishock-title.png";
-import skibicos from "@assets/skibicos-title.png";
-import skibidragon from "@assets/skibidragon-title.png";
-
-import shockframe from "@assets/shock-frame.png";
-import cosframe from "@assets/cos-frame.png";
-import dragonframe from "@assets/dragon-frame.png";
+import shockframe from "@assets/slides/rus/skibishock-frame.png";
+import cosframe from "@assets/slides/rus/skibicos-frame.png";
+import dragonframe from "@assets/slides/rus/skibidragon-frame.png";
 
 import _1 from "@assets/slides/1.png";
 import _2 from "@assets/slides/2.png";
@@ -31,7 +26,8 @@ import DescriptionFrame from "@/components/UI/DescriptionFrame";
 import CosSword from "@/components/UI/CosSword";
 import DragonSword from "@/components/UI/DragonSword";
 import CopyrightText from "@/components/UI/CopyrightText";
-import ShockText from "@/components/Texts/ShockText";
+
+import headtext from "@assets/slides/rus/headtext.png";
 
 const RusVersion = () => {
    return (
@@ -42,11 +38,9 @@ const RusVersion = () => {
                style={{
                   transform: "translateY(-7.5%)",
                }}
-            >
-               Стань сильнее со SKIBIGAN
-               <br />
-               Стань избранным
-            </HeadingFrame>
+               text={headtext}
+               glare={false}
+            />
             <IntroText>
                Три светящихся SKIBIGUN заряжены мощной
                <br />
@@ -58,55 +52,15 @@ const RusVersion = () => {
          </Section>
          <Slide image={_2}>
             <ShockSword />
-            <DescriptionFrame x={39} y={7} width={56} frame={shockframe}>
-               <ShockText />
-            </DescriptionFrame>
+            <DescriptionFrame x={39} y={7} width={56} frame={shockframe} />
          </Slide>
          <Slide image={_3} zIndex={1}>
             <CosSword />
-            <DescriptionFrame x={5} y={7} width={61} frame={cosframe}>
-               <img src={skibicos} alt={"SKIBICOS"} width={"54%"} />
-               <p>
-                  энергия космоса и звёзд в
-                  <br />
-                  твоих руках. Самый таинственный
-                  <br />
-                  SKIBIGUN, который может исцелять.
-                  <br />
-                  SKIBICOS способен извлекать силу из
-                  <br />
-                  звезд преобразуя её в космическое
-                  <br />
-                  излучение. С помощью него
-                  <br />
-                  SKIBICOSMICA должна
-                  <br />
-                  спасти свою планету.
-               </p>
-            </DescriptionFrame>
+            <DescriptionFrame x={5} y={7} width={61} frame={cosframe} />
          </Slide>
          <Slide image={_4}>
             <DragonSword />
-            <DescriptionFrame x={35} y={3} width={61} frame={dragonframe}>
-               <img src={skibidragon} alt={"SKIBIGUN"} width={"55%"} />
-               <p>
-                  сожги всё на своём пути.
-                  <br />
-                  SKIBIDRAGON способен поглощать
-                  <br />
-                  тёмные силы зла, пряча их в своём
-                  <br />
-                  раскалённом лезвии. Но тот, кто
-                  <br />
-                  осмелвается использовать его слишком
-                  <br />
-                  часто, рискует поглотить сам себя тьмой.
-                  <br />
-                  обрети единение со стихией огня и союз с
-                  <br />
-                  духом дракона.
-               </p>
-            </DescriptionFrame>
+            <DescriptionFrame x={35} y={3} width={61} frame={dragonframe} />
          </Slide>
          <Slide image={_5} />
          <Slide image={_6}>
