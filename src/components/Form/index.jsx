@@ -174,27 +174,32 @@ const Form = ({ lang }) => {
                locales={strings}
             />
             <TextInput
+               error={error}
                name={"email"}
                placeholder={strings.emailPlaceholder}
                onChange={handleFormChanged}
             />
             <TextInput
+               error={error}
                name={"phone"}
                placeholder={strings.phonePlaceholder}
                onChange={handleFormChanged}
             />
             <TextInput
+               error={error}
                name={"fname"}
                placeholder={strings.fnamePlaceholder}
                onChange={handleFormChanged}
             />
             <TextInput
+               error={error}
                name={"lname"}
                placeholder={strings.lnamePlaceholder}
                onChange={handleFormChanged}
             />
             {lang == "ru" && (
                <TextInput
+                  error={error}
                   name={"surname"}
                   placeholder={strings.surnamePlaceholder}
                   onChange={handleFormChanged}
@@ -202,41 +207,47 @@ const Form = ({ lang }) => {
             )}
             <h1 className={styles.heading}>{strings.shippingAddressHeading}</h1>
             <TextInput
+               error={error}
                name={"country"}
                placeholder={strings.countryPlaceholder}
                onChange={handleFormChanged}
             />
             <TextInput
+               error={error}
                name={"city"}
                placeholder={strings.cityPlaceholder}
                onChange={handleFormChanged}
             />
             <TextInput
+               error={error}
                name={"state"}
                placeholder={strings.statePlaceholder}
                onChange={handleFormChanged}
             />
             <TextInput
+               error={error}
                name={"street"}
                placeholder={strings.streetPlaceholder}
                onChange={handleFormChanged}
             />
             <TextInput
+               error={error}
                name={"house"}
                placeholder={strings.housePlaceholder}
                onChange={handleFormChanged}
             />
             <TextInput
+               error={error}
                name={"zip"}
                placeholder={strings.zipPlaceholder}
                onChange={handleFormChanged}
             />
             <TextInput
+               error={error}
                name={"message"}
                placeholder={strings.messagePlaceholder}
                onChange={handleFormChanged}
             />
-            {error && <p className={styles.error}>{error}</p>}
             <Button
                onClick={handleFormSend}
                ordered={isOrdered}
