@@ -1,21 +1,43 @@
 .text {
-  color: white;
-  font-size: 1.7rem;
-  text-align: center;
-  font-family: "Aparajita", "Sylfaen";
-  filter: drop-shadow(2px 2px 1.5px rgba(0, 0, 0, 0.5));
+   color: white;
+   font-size: 1.7rem;
+   text-align: center;
+   font-family: "Aparajita", "Sylfaen";
+   filter: drop-shadow(2px 2px 1.5px rgba(0, 0, 0, 0.5));
 
-  width: 80%;
-  margin: 0 auto;
-  margin-top: 7%;
-  margin-bottom: 7%;
+   width: 80%;
+   margin: 0 auto;
+   margin-top: 7%;
+   margin-bottom: 7%;
 
-  a {
-    color: white;
-    text-decoration: none;
-  }
+   a {
+      color: white;
+      text-decoration: none;
+   }
 
-  @media (max-width: 670px) {
-    font-size: 3.9vw;
-  }
+   @media (max-width: 670px) {
+      font-size: 3.9vw;
+   }
+}
+
+.min {
+   color: white;
+   font-size: 1.25rem;
+   text-align: center;
+   font-family: "Aparajita", "Sylfaen";
+   filter: drop-shadow(2px 2px 1.5px rgba(0, 0, 0, 0.5));
+
+   width: 80%;
+   margin: 0 auto;
+   margin-top: 7%;
+   margin-bottom: 7%;
+
+   a {
+      color: white;
+      text-decoration: none;
+   }
+
+   @media (max-width: 670px) {
+      font-size: 2.95vw;
+   }
 }
