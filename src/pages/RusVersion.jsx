@@ -31,6 +31,7 @@ import DescriptionFrame from "@/components/UI/DescriptionFrame";
 import CosSword from "@/components/UI/CosSword";
 import DragonSword from "@/components/UI/DragonSword";
 import CopyrightText from "@/components/UI/CopyrightText";
+import ShockText from "@/components/Texts/ShockText";
 
 const RusVersion = () => {
    return (
@@ -58,22 +59,7 @@ const RusVersion = () => {
          <Slide image={_2}>
             <ShockSword />
             <DescriptionFrame x={39} y={7} width={56} frame={shockframe}>
-               <img src={skibishock} alt={"SKIBISHOCK"} width={"58%"} />
-               <p>
-                  ударь током своих врагов.
-                  <br />
-                  Сила тысячи молний спрятана
-                  <br />
-                  в этом SKIBIGUN.
-                  <br />
-                  SKIBISHOCK может перехватывать
-                  <br />
-                  энергию молний и заряжать ими своё
-                  <br />
-                  лезвие. SKIBISHOCK осветит
-                  <br />
-                  самый темный и опасный путь.
-               </p>
+               <ShockText />
             </DescriptionFrame>
          </Slide>
          <Slide image={_3} zIndex={1}>
