@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 import styles from "./Form.module.scss";
 
 import TextInput from "./TextInput";
 import Button from "../Button";
 import ItemSelect from "./ItemSelect";
 import LocalizedStrings from "react-localization";
-import { useForm } from "react-hook-form";
 
 const items = [
    {
@@ -22,35 +22,42 @@ const items = [
    },
 ];
 
-const Form = ({ lang }) => {
-   const [formData, setFormData] = useState({
-      SKIBISHOCK: true,
-      SKIBICOS: false,
-      SKIBIDRAGON: false,
-      email: "",
-      phone: "",
-      fname: "",
-      lname: "",
-      surname: "",
-      country: "",
-      city: "",
-      state: "",
-      street: "",
-      house: "",
-      zip: "",
-      message: "",
-   });
-   const [isOrdered, setOrdered] = useState(false);
-   const [error, setError] = useState("");
+const buyAllPrice = 2500;
 
+const Form = ({ lang }) => {
+   const [isOrdered, setOrdered] = useState(false);
    const {
       register,
       handleSubmit,
       watch,
+      getValues,
+      setValue,
       formState: { errors },
    } = useForm();
 
-   const onSubmit = (data) => console.log(data);
+   const [total, setTotal] = useState(0);
+   const [selected, setSelected] = useState({
+      SKIBISHOCK: false,
+      SKIBICOS: false,
+      SKIBIDRAGON: false,
+   });
+
+   useEffect(() => {
+      if (selected.SKIBISHOCK && selected.SKIBICOS && selected.SKIBIDRAGON) {
+         return setTotal(buyAllPrice);
+      }
+
+      setTotal(
+         items.reduce((acc, item) => {
+            if (selected[item.name]) {
+               acc += item.price;
+            }
+            return acc;
+         }, 0)
+      );
+
+      console.log(selected);
+   }, [selected]);
 
    let strings = new LocalizedStrings({
       en: {
@@ -96,75 +103,21 @@ const Form = ({ lang }) => {
             "Заполните форму для покупки, наш менеджер свяжется с вами по электронной почте для оплаты.",
       },
    });
+   lang && strings.setLanguage(lang);
 
-   if (lang) {
-      strings.setLanguage(lang);
-   }
-
-   const handleFormChanged = (event) => {
-      const { name, type, checked, value } = event.target;
-      setError("");
-      setFormData((prev) => ({
-         ...prev,
-         [name]: type === "checkbox" ? checked : value,
-      }));
-   };
-
-   const handleItemSelectAll = (event) => {
-      const { checked } = event.target;
-      setFormData((prev) => ({
-         ...prev,
-         SKIBISHOCK: checked,
-         SKIBICOS: checked,
-         SKIBIDRAGON: checked,
-      }));
-   };
-
-   const totalPrice = items.reduce((prev, cur) => {
-      if (formData[cur.name]) {
-         return prev + cur.price;
-      }
-      return prev;
-   }, 0);
-
-   const validate = () => {
-      let errors = [];
-      for (let key of Object.keys(formData)) {
-         if (formData[key] === "" || formData[key] === undefined) {
-            if (!(key === "surname" && lang === "en")) {
-               errors.push({
-                  field: key,
-                  msg: "Required",
-               });
-            }
-         }
-      }
-      return errors;
-   };
-
-   const handleFormSend = (event) => {
-      event.preventDefault();
-
+   const onSubmit = (data) => {
       if (isOrdered) return;
 
-      const errors = validate();
-
-      if (errors.length) {
-         console.dir(errors);
-         setError(strings.fillAllError);
-         return;
-      }
-
-      setOrdered(true);
-      console.table({ ...formData, sum: totalPrice });
+      console.table({ ...data, sum: total, ...selected, lang });
 
       fetch("http://skibigun-api.vercel.app/sendorder", {
          method: "POST",
          headers: { "Content-Type": "application/json" },
-         body: JSON.stringify({ ...formData, sum: totalPrice }),
+         body: JSON.stringify({ ...data, sum: total, ...selected, lang }),
       })
          .then((response) => response.json())
          .then((data) => {
+            setOrdered(true);
             alert(`Order sent successfully!`);
          })
          .catch((error) => {
@@ -173,96 +126,102 @@ const Form = ({ lang }) => {
          });
    };
 
+   const handleItemSelect = (event, { name, price }) => {
+      const checked = event.target.checked;
+
+      setSelected((prev) => ({ ...prev, [name]: checked }));
+   };
+
+   const handleItemSelectAll = (event) => {
+      const { checked } = event.target;
+
+      setSelected({
+         SKIBISHOCK: checked,
+         SKIBICOS: checked,
+         SKIBIDRAGON: checked,
+      });
+   };
+
    return (
       <div className={styles.form_container}>
          <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
             <ItemSelect
                items={items}
-               selected={formData}
-               onChange={handleFormChanged}
-               selectAll={handleItemSelectAll}
+               selected={selected}
+               onSelect={handleItemSelect}
+               onSelectAll={handleItemSelectAll}
                locales={strings}
+               totalPrice={total}
+               sumPrice={buyAllPrice}
             />
             <TextInput
-               error={error}
-               name={"email"}
+               {...register("email", { required: true })}
+               error={errors?.email}
                placeholder={strings.emailPlaceholder}
-               onChange={handleFormChanged}
             />
             <TextInput
-               error={error}
-               name={"phone"}
+               {...register("phone", { required: true })}
+               error={errors?.phone}
                placeholder={strings.phonePlaceholder}
-               onChange={handleFormChanged}
             />
             <TextInput
-               error={error}
-               name={"fname"}
+               {...register("fname", { required: true })}
+               error={errors?.fname}
                placeholder={strings.fnamePlaceholder}
-               onChange={handleFormChanged}
             />
             <TextInput
-               error={error}
-               name={"lname"}
+               {...register("lname", { required: true })}
+               error={errors?.lname}
                placeholder={strings.lnamePlaceholder}
-               onChange={handleFormChanged}
             />
             {lang == "ru" && (
                <TextInput
-                  error={error}
-                  name={"surname"}
+                  {...register("surname")}
+                  error={errors?.surname}
                   placeholder={strings.surnamePlaceholder}
-                  onChange={handleFormChanged}
                />
             )}
+
             <h1 className={styles.heading}>{strings.shippingAddressHeading}</h1>
+
             <TextInput
-               error={error}
-               name={"country"}
+               {...register("country", { required: true })}
+               error={errors?.country}
                placeholder={strings.countryPlaceholder}
-               onChange={handleFormChanged}
             />
             <TextInput
-               error={error}
-               name={"city"}
+               {...register("city", { required: true })}
+               error={errors?.city}
                placeholder={strings.cityPlaceholder}
-               onChange={handleFormChanged}
             />
             <TextInput
-               error={error}
-               name={"state"}
+               {...register("state")}
+               error={errors?.state}
                placeholder={strings.statePlaceholder}
-               onChange={handleFormChanged}
             />
             <TextInput
-               error={error}
-               name={"street"}
+               {...register("street")}
+               error={errors?.street}
                placeholder={strings.streetPlaceholder}
-               onChange={handleFormChanged}
             />
             <TextInput
-               error={error}
-               name={"house"}
+               {...register("house")}
+               error={errors?.house}
                placeholder={strings.housePlaceholder}
-               onChange={handleFormChanged}
             />
             <TextInput
-               error={error}
-               name={"zip"}
+               {...register("zip")}
+               error={errors?.zip}
                placeholder={strings.zipPlaceholder}
-               onChange={handleFormChanged}
             />
             <TextInput
-               error={error}
-               name={"message"}
+               {...register("message")}
+               error={errors?.message}
                placeholder={strings.messagePlaceholder}
-               onChange={handleFormChanged}
             />
-            <Button
-               onClick={handleFormSend}
-               ordered={isOrdered}
-               locale={lang}
-            />
+
+            <Button type="submit" ordered={isOrdered} locale={lang} />
+
             {lang === "ru" ? (
                <p className={styles.info}>
                   Заполните форму для покупки, наш менеджер

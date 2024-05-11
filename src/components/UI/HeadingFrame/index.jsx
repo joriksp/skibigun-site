@@ -8,7 +8,7 @@ const HeadingFrame = ({ children, style, glare = true, text, gradient }) => {
    const addstyle = {
       background: gradient,
       backgroundClip: "text",
-      webkitBackgroundClip: "text",
+      WebkitBackgroundClip: "text",
    };
 
    return (

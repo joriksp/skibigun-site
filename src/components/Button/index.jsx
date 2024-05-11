@@ -6,7 +6,7 @@ import preorder_button_clicked from "@assets/slides/eng/preorder-button-clicked.
 import preorder_button_rus from "@assets/slides/rus/preorder-button.png";
 import preorder_button_clicked_rus from "@assets/slides/rus/preorder-button-clicked.png";
 
-const Button = ({ onClick, ordered, locale }) => {
+const Button = ({ onClick, ordered, locale, type }) => {
    const bg =
       locale === "ru"
          ? ordered
@@ -19,7 +19,7 @@ const Button = ({ onClick, ordered, locale }) => {
    return (
       <div className={styles.button_container}>
          <img src={bg} alt="" />
-         <button onClick={onClick} type="submit"></button>
+         <button onClick={onClick} type={type}></button>
       </div>
    );
 };

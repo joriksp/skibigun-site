@@ -7,26 +7,28 @@ import CheckBox from "../CheckBox";
 
 import FormTitle from "@/components/UI/FormTitle";
 
-const ItemSelect = ({ items, onChange, selectAll, selected, locales }) => {
-   const totalPrice = items.reduce((prev, cur) => {
-      if (selected[cur.name]) {
-         return prev + cur.price;
-      }
-      return prev;
-   }, 0);
-
-   const language = locales.getLanguage();
+const ItemSelect = ({
+   items,
+   selected,
+   onSelect,
+   onSelectAll,
+   locales,
+   totalPrice,
+   sumPrice,
+}) => {
+   const lang = locales.getLanguage();
 
    const renderCheckboxes = () =>
       items.map((item, i) => (
          <CheckBox
             key={i}
-            valute={language}
-            id={item.name}
+            valute={lang}
             label={item.name}
             price={item.price}
             checked={selected[item.name]}
-            onChange={onChange}
+            onChange={(event) =>
+               onSelect(event, { name: item.name, price: item.price })
+            }
          />
       ));
 
@@ -36,16 +38,14 @@ const ItemSelect = ({ items, onChange, selectAll, selected, locales }) => {
          <fieldset>
             {renderCheckboxes()}
             <CheckBox
-               valute={language}
+               valute={lang}
                id="all"
                label={locales.buyAll}
-               price={items.reduce((prev, cur) => prev + cur.price, 0)}
-               checked={
-                  selected.SKIBISHOCK &&
-                  selected.SKIBICOS &&
-                  selected.SKIBIDRAGON
-               }
-               onChange={selectAll}
+               price={sumPrice}
+               checked={Object.values(selected).every(
+                  (param) => param !== false
+               )}
+               onChange={onSelectAll}
             />
          </fieldset>
          <CurrencyFormat
@@ -56,9 +56,7 @@ const ItemSelect = ({ items, onChange, selectAll, selected, locales }) => {
             renderText={(value) => (
                <h1 className={styles.total}>
                   <span className={styles.price}>{value}</span>{" "}
-                  <span className={styles.ruble}>
-                     {language === "ru" && " ₽"}
-                  </span>
+                  <span className={styles.ruble}>{lang === "ru" && " ₽"}</span>
                </h1>
             )}
          />

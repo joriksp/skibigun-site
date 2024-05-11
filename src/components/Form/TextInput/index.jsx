@@ -1,29 +1,19 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import styles from "./TextInput.module.scss";
 
 import frame from "@assets/input-field.png";
 
-const TextInput = ({ placeholder, type, name, onChange, error }) => {
+const TextInput = forwardRef(({ placeholder, error, ...props }, ref) => {
    const bright = {
-      filter: "drop-shadow(0 0 rgb(255 255 255 / 0.8)",
+      filter: "drop-shadow(rgb(255, 0, 0) 0px 0px) saturate(1.5)",
    };
 
    return (
-      <div
-         style={error !== "" ? bright : {}}
-         className={styles.input_container}
-      >
+      <div className={styles.input_container} style={error && bright}>
          <img className={styles.bg} src={frame} alt="error" />
-         <input
-            autoComplete="new-password"
-            type={type || "text"}
-            placeholder={placeholder || ""}
-            name={name}
-            id={name}
-            onChange={onChange}
-         />
+         <input placeholder={placeholder || ""} {...props} ref={ref} />
       </div>
    );
-};
+});
 
 export default TextInput;
