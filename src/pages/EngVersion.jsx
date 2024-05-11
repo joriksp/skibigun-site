@@ -45,9 +45,9 @@ const EngVersion = () => {
             <IntroText>
                Three glowing SKIBIGUNS are charged with
                <br />
-               powerful power. Only in the hands of chosen
+               powerful force. Only in the hands of the chosen
                <br />
-               one will the SKIBIGUN warriors reveal their
+               one will the SKIBIGUN weapons reveal their
                <br />
                power and help save the world from the Skibidists.
             </IntroText>

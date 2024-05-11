@@ -73,13 +73,13 @@ const Form = ({ lang }) => {
          statePlaceholder: "State",
          streetPlaceholder: "Street",
          housePlaceholder: "House",
-         zipPlaceholder: "Zip",
+         zipPlaceholder: "Zip code",
          messagePlaceholder: "Message",
          buyAll: "BUY ALL",
          formTitle: "Choose a SKIBIGUN",
          fillAllError: "Fill in all the fields",
          formInfo:
-            "Full out the purchase order form, our manager will contact you by email for payment.",
+            "Fill in the purchase order form, our manager will contact you by email for payment.",
       },
       ru: {
          totalHeading: "Итого ",
@@ -230,7 +230,7 @@ const Form = ({ lang }) => {
                </p>
             ) : (
                <p className={styles.infoen}>
-                  Full out the purchase order form, our manager
+                  Fill in the purchase order form, our manager
                   <br />
                   will contact you by email for payment.
                </p>
