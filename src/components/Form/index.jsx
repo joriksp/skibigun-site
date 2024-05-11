@@ -7,25 +7,28 @@ import Button from "../Button";
 import ItemSelect from "./ItemSelect";
 import LocalizedStrings from "react-localization";
 
-const items = [
-   {
-      name: "SKIBISHOCK",
-      price: 1000,
-   },
-   {
-      name: "SKIBICOS",
-      price: 1000,
-   },
-   {
-      name: "SKIBIDRAGON",
-      price: 1000,
-   },
-];
+// const items = [
+//    {
+//       name: "SKIBISHOCK",
+//       price: 1000,
+//    },
+//    {
+//       name: "SKIBICOS",
+//       price: 1000,
+//    },
+//    {
+//       name: "SKIBIDRAGON",
+//       price: 1000,
+//    },
+// ];
 
-const buyAllPrice = 2500;
+// const buyAllPrice = 2500;
 
 const Form = ({ lang }) => {
    const [isOrdered, setOrdered] = useState(false);
+   const [items, setItems] = useState([]);
+   const [buyAllPrice, setBuyAllPrice] = useState(0);
+
    const {
       register,
       handleSubmit,
@@ -34,6 +37,23 @@ const Form = ({ lang }) => {
       setValue,
       formState: { errors },
    } = useForm();
+
+   useEffect(() => {
+      fetch("http://skibigun-api.vercel.app/getprices", {
+         method: "POST",
+         headers: { "Content-Type": "application/json" },
+         body: JSON.stringify({ lang }),
+      })
+         .then((response) => response.json())
+         .then((data) => {
+            setItems(data.items);
+            setBuyAllPrice(data.forAll);
+         })
+         .catch((error) => {
+            console.error(error);
+            alert("Error");
+         });
+   }, []);
 
    const [total, setTotal] = useState(0);
    const [selected, setSelected] = useState({
