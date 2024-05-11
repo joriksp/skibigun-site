@@ -75,7 +75,7 @@ const RusVersion = () => {
             <CopyrightText locale={"ru"}>
                Copyright 2024 SKIBIGUN
                <br />
-               Все права защищены |
+               Все права защищены |{" "}
                <a href={"ru/privacypolicy"}>Политика конфиденциальности</a> |
                <a href={"ru/termsofuse"}>Условия использования</a>
             </CopyrightText>
