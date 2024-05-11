@@ -5,8 +5,6 @@ import styles from "./ItemSelect.module.scss";
 
 import CheckBox from "../CheckBox";
 
-import heading from "@assets/slides/eng/chooseaskibigun.png";
-import headin_rus from "@assets/slides/rus/chooseaskibigun.png";
 import FormTitle from "@/components/UI/FormTitle";
 
 const ItemSelect = ({ items, onChange, selectAll, selected, locales }) => {
@@ -57,7 +55,10 @@ const ItemSelect = ({ items, onChange, selectAll, selected, locales }) => {
             prefix={locales.totalHeading}
             renderText={(value) => (
                <h1 className={styles.total}>
-                  {value} <span style={{ fontFamily: `"Inter Tight", sans-serif`, fontSize: "75%", fontWeight: "500" }}>{language === "ru" && " ₽"}</span>
+                  <span className={styles.price}>{value}</span>{" "}
+                  <span className={styles.ruble}>
+                     {language === "ru" && " ₽"}
+                  </span>
                </h1>
             )}
          />

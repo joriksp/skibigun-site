@@ -6,6 +6,12 @@
 
    font-family: "Aparajita", "Sylfaen", Times;
 
+   .ruble {
+      font-family: "Ubuntu Sans Mono", monospace;
+      font-size: 75%;
+      font-weight: 200;
+   }
+
    @media screen and (max-width: 670px) {
       font-size: 4vw;
    }

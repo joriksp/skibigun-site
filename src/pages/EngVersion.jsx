@@ -69,7 +69,13 @@ const EngVersion = () => {
             <Form lang={"en"} />
          </Slide>
          <Section image={_7}>
-            <HeadingFrame glare={false}>
+            <HeadingFrame
+               glare={false}
+               gradient={
+                  "linear-gradient(0deg, rgba(210,145,93,1) 0%, rgba(235,206,134,1) 19%, rgba(245,231,189,1) 54%, rgba(235,204,140,1) 81%, rgba(180,123,70,1) 100%)"
+               }
+               style={{ marginTop: "3%" }}
+            >
                Become the chosen one
                <br />
                Choose your SKIBIGUN
@@ -78,8 +84,8 @@ const EngVersion = () => {
                Copyright 2024 SKIBIGUN
                <br />
                All rights reserved |{" "}
-               <a href={"en/privacypolicy/"}>Privacy Policy</a> |
-               <a href={"en/termsofuse/"}>Terms of use</a>
+               <a href={"/en/privacypolicy/"}>Privacy Policy</a> |{" "}
+               <a href={"/en/termsofuse/"}>Terms of use</a>
             </CopyrightText>
          </Section>
       </Main>

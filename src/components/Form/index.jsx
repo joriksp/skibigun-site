@@ -5,6 +5,7 @@ import TextInput from "./TextInput";
 import Button from "../Button";
 import ItemSelect from "./ItemSelect";
 import LocalizedStrings from "react-localization";
+import { useForm } from "react-hook-form";
 
 const items = [
    {
@@ -23,7 +24,7 @@ const items = [
 
 const Form = ({ lang }) => {
    const [formData, setFormData] = useState({
-      SKIBISHOCK: false,
+      SKIBISHOCK: true,
       SKIBICOS: false,
       SKIBIDRAGON: false,
       email: "",
@@ -41,6 +42,15 @@ const Form = ({ lang }) => {
    });
    const [isOrdered, setOrdered] = useState(false);
    const [error, setError] = useState("");
+
+   const {
+      register,
+      handleSubmit,
+      watch,
+      formState: { errors },
+   } = useForm();
+
+   const onSubmit = (data) => console.log(data);
 
    let strings = new LocalizedStrings({
       en: {
@@ -165,7 +175,7 @@ const Form = ({ lang }) => {
 
    return (
       <div className={styles.form_container}>
-         <form autoComplete="off">
+         <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
             <ItemSelect
                items={items}
                selected={formData}
@@ -253,7 +263,19 @@ const Form = ({ lang }) => {
                ordered={isOrdered}
                locale={lang}
             />
-            <p className={styles.info}>{strings.formInfo}</p>
+            {lang === "ru" ? (
+               <p className={styles.info}>
+                  Заполните форму для покупки, наш менеджер
+                  <br />
+                  свяжется с вами по электронной почте для оплаты.
+               </p>
+            ) : (
+               <p className={styles.infoen}>
+                  Full out the purchase order form, our manager
+                  <br />
+                  will contact you by email for payment.
+               </p>
+            )}
          </form>
       </div>
    );

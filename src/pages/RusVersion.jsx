@@ -20,7 +20,7 @@ import _7 from "@assets/slides/7.png";
 
 import Section from "@/components/Section";
 import HeadingFrame from "@/components/UI/HeadingFrame";
-import IntroText from "@/components/UI/IntroText";
+import IntroTextRus from "@/components/UI/IntroTextRus";
 import ShockSword from "@/components/UI/ShockSword";
 import DescriptionFrame from "@/components/UI/DescriptionFrame";
 import CosSword from "@/components/UI/CosSword";
@@ -41,14 +41,14 @@ const RusVersion = () => {
                text={headtext}
                glare={false}
             />
-            <IntroText>
+            <IntroTextRus>
                Три светящихся SKIBIGUN заряжены мощной
                <br />
                силой. Только в руках избранного война
                <br />
                SKIBIGUN раскроют свою силу
                <br />и помогут спасти мир от Скибидистов.
-            </IntroText>
+            </IntroTextRus>
          </Section>
          <Slide image={_2}>
             <ShockSword />
@@ -67,7 +67,13 @@ const RusVersion = () => {
             <Form lang={"ru"} />
          </Slide>
          <Section image={_7}>
-            <HeadingFrame glare={false}>
+            <HeadingFrame
+               glare={false}
+               gradient={
+                  "linear-gradient(0deg, rgba(210,145,93,1) 0%, rgba(235,206,134,1) 19%, rgba(245,231,189,1) 54%, rgba(235,204,140,1) 81%, rgba(180,123,70,1) 100%)"
+               }
+               style={{ marginTop: "3%" }}
+            >
                Стань избранным
                <br />
                Выбери свой SKIBIGUN
@@ -76,8 +82,9 @@ const RusVersion = () => {
                Copyright 2024 SKIBIGUN
                <br />
                Все права защищены |{" "}
-               <a href={"ru/privacypolicy"}>Политика конфиденциальности</a> |
-               <a href={"ru/termsofuse"}>Условия использования</a>
+               <a href={"/ru/privacypolicy"}>
+                  Политика конфиденциальности
+               </a> | <a href={"/ru/termsofuse"}>Условия использования</a>
             </CopyrightText>
          </Section>
       </Main>
