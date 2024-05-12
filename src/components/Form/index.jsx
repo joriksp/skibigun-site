@@ -7,23 +7,6 @@ import Button from "../Button";
 import ItemSelect from "./ItemSelect";
 import LocalizedStrings from "react-localization";
 
-// const items = [
-//    {
-//       name: "SKIBISHOCK",
-//       price: 1000,
-//    },
-//    {
-//       name: "SKIBICOS",
-//       price: 1000,
-//    },
-//    {
-//       name: "SKIBIDRAGON",
-//       price: 1000,
-//    },
-// ];
-
-// const buyAllPrice = 2500;
-
 const Form = ({ lang }) => {
    const [isOrdered, setOrdered] = useState(false);
    const [items, setItems] = useState([]);
@@ -81,7 +64,7 @@ const Form = ({ lang }) => {
 
    let strings = new LocalizedStrings({
       en: {
-         totalHeading: "Total price $ ",
+         totalHeading: "Total price",
          emailPlaceholder: "Your e-mail address",
          phonePlaceholder: "Phone number",
          fnamePlaceholder: "First name",
@@ -102,7 +85,7 @@ const Form = ({ lang }) => {
             "Fill in the purchase order form, our manager will contact you by email for payment.",
       },
       ru: {
-         totalHeading: "Итого ",
+         totalHeading: "Итого",
          emailPlaceholder: "Ваш адрес эл. почты",
          phonePlaceholder: "Номер телефона",
          fnamePlaceholder: "Имя",
@@ -190,7 +173,7 @@ const Form = ({ lang }) => {
                placeholder={strings.fnamePlaceholder}
             />
             <TextInput
-               {...register("lname", { required: true })}
+               {...register("lname")}
                error={errors?.lname}
                placeholder={strings.lnamePlaceholder}
             />

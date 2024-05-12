@@ -52,11 +52,15 @@ const ItemSelect = ({
             value={totalPrice}
             displayType={"text"}
             thousandSeparator={" "}
-            prefix={locales.totalHeading}
+            prefix={false}
             renderText={(value) => (
                <h1 className={styles.total}>
-                  <span className={styles.price}>{value}</span>{" "}
-                  <span className={styles.ruble}>{lang === "ru" && " ₽"}</span>
+                  <span className={styles.prefix}>{locales.totalHeading}</span>{" "}
+                  <span className={styles.price}>
+                     {lang === "en" && <span className={styles.dollar}>$</span>}{" "}
+                     <span className={styles.sum}>{value}</span>{" "}
+                     {lang === "ru" && <span className={styles.ruble}>₽</span>}
+                  </span>
                </h1>
             )}
          />
