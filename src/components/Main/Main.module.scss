@@ -16,14 +16,16 @@
       left: 0;
       z-index: 20;
 
-      width: 4%;
+      width: 5.5%;
       height: 100%;
 
+      background: transparent;
       background: linear-gradient(
          90deg,
          rgba(0, 0, 0, 1) 0%,
-         rgba(0, 0, 0, 0.5) 40%,
-         rgba(0, 0, 0, 0) 80%
+         rgba(0, 0, 0, 0.7) 40%,
+         rgba(0, 0, 0, 0.1) 80%,
+         rgba(0, 0, 0, 0) 100%
       );
    }
 
@@ -35,12 +37,15 @@
       right: 0;
       z-index: 20;
 
-      width: 4%;
+      width: 5.5%;
       height: 100%;
 
+      background: transparent;
       background: linear-gradient(
          -90deg,
-         rgba(0, 0, 0, 1) 7%,
+         rgba(0, 0, 0, 1) 0%,
+         rgba(0, 0, 0, 0.7) 40%,
+         rgba(0, 0, 0, 0.1) 80%,
          rgba(0, 0, 0, 0) 100%
       );
    }
