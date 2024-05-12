@@ -7,6 +7,10 @@
    padding-right: 15%;
    padding-bottom: 12%;
 
+   color: #fffbbd;
+   font-family: "Aparajita", "Sylfaen", Times;
+   font-weight: 500;
+
    form {
       display: flex;
       flex-direction: column;
@@ -30,34 +34,35 @@
       }
 
       .info {
-         color: white;
+         color: #e6e2cf;
          font-size: 19px;
          text-align: center;
          text-wrap: nowrap;
          width: 100%;
          line-height: 125%;
 
+         font-family: "Sylfaen", Times;
+         text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
          @media screen and (max-width: 670px) {
-            font-size: 2.8vw;
+            font-size: 2.7vw;
          }
       }
 
       .infoen {
-         color: white;
+         color: #e6e2cf;
          font-size: 28px;
          text-align: center;
          text-wrap: nowrap;
          width: 100%;
          line-height: 125%;
 
+         font-family: "Aparajita", Times;
+
          @media screen and (max-width: 670px) {
             font-size: 4.1vw;
          }
       }
-
-      color: #d0d199;
-      font-family: "Aparajita", "Sylfaen", "Times New Roman", Times, serif;
-      font-weight: 500;
 
       fieldset {
          width: 100%;
