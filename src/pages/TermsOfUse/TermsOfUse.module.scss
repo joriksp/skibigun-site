@@ -1,11 +1,15 @@
-.content {
+.header {
    padding: 25px;
    background: url(/src/assets/slides/1.png);
-   background-size: cover;
-   background-attachment: fixed;
+   background-size: contain;
+}
 
+.content {
+   padding: 25px;
    font-family: "Aparajita", "Sylfaen", "Times New Roman", Times, serif;
    font-size: 1.2rem;
+
+   background: #34525b;
 
    :not(:last-child) {
       margin-bottom: 15px;

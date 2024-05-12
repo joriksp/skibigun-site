@@ -72,7 +72,7 @@ const EngVersion = () => {
             <HeadingFrame
                glare={false}
                gradient={
-                  "linear-gradient(0deg, rgba(210,145,93,1) 0%, rgba(235,206,134,1) 19%, rgba(245,231,189,1) 54%, rgba(235,204,140,1) 81%, rgba(180,123,70,1) 100%)"
+                  "linear-gradient(0deg, rgb(204 132 75) 0%, rgb(235, 206, 134) 19%, rgb(245, 231, 189) 54%, rgb(235, 204, 140) 81%, rgb(186 113 46) 100%) text"
                }
                style={{ marginTop: "3%" }}
             >

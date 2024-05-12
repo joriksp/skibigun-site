@@ -12,7 +12,7 @@ const PrivacePolicy = () => {
 
    return (
       <Main>
-         <div className={styles.content}>
+         <div className={styles.header}>
             <HeadingFrame glare={false}>
                {lang === "ru" ? (
                   <>
@@ -24,6 +24,8 @@ const PrivacePolicy = () => {
                   <>Privacy Policy</>
                )}
             </HeadingFrame>
+         </div>
+         <div className={styles.content}>
             {lang == "en" ? (
                <>
                   <p>

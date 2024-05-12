@@ -2,9 +2,7 @@ import React from "react";
 import styles from "./TermsOfUse.module.scss";
 
 import Main from "@/components/Main";
-import Section from "@/components/Section";
 
-import bg from "@assets/slides/1.png";
 import HeadingFrame from "@/components/UI/HeadingFrame";
 import LocalizedStrings from "react-localization";
 import { useParams } from "react-router-dom";
@@ -24,8 +22,10 @@ const TermsOfUse = () => {
 
    return (
       <Main>
-         <div className={styles.content}>
+         <div className={styles.header}>
             <HeadingFrame glare={false}>{strings.title}</HeadingFrame>
+         </div>
+         <div className={styles.content}>
             {lang == "en" ? (
                <>
                   <p>
