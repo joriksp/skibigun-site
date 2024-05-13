@@ -17,7 +17,7 @@ const router = createBrowserRouter([
    {
       path: "/",
       element: <AutoRedirect />,
-      errorElement: "Error",
+      errorElement: <Navigate to="/" />,
    },
    {
       path: "en/",
@@ -26,10 +26,6 @@ const router = createBrowserRouter([
    {
       path: "ru/",
       element: <RusVersion />,
-   },
-   {
-      path: ":lang/termsofuse",
-      element: <TermsOfUse />,
    },
    {
       path: ":lang/termsofuse",

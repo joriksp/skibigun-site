@@ -121,7 +121,7 @@ const Form = ({ lang }) => {
          .then((response) => response.json())
          .then((data) => {
             setOrdered(true);
-            alert(`Order sent successfully!`);
+            // alert(`Order sent successfully!`);
          })
          .catch((error) => {
             console.error("Error sending order:", error);

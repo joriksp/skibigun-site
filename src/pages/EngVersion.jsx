@@ -54,15 +54,15 @@ const EngVersion = () => {
          </Section>
          <Slide image={_2}>
             <ShockSword />
-            <DescriptionFrame x={39} y={7} width={56} frame={shockframe} />
+            <DescriptionFrame x={37} y={7} width={58} frame={shockframe} />
          </Slide>
          <Slide image={_3} zIndex={1}>
             <CosSword />
-            <DescriptionFrame x={5} y={7} width={61} frame={cosframe} />
+            <DescriptionFrame x={5} y={7} width={58} frame={cosframe} />
          </Slide>
          <Slide image={_4}>
             <DragonSword />
-            <DescriptionFrame x={35} y={3} width={61} frame={dragonframe} />
+            <DescriptionFrame x={37} y={3} width={58} frame={dragonframe} />
          </Slide>
          <Slide image={_5} />
          <Slide image={_6}>

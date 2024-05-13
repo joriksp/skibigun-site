@@ -52,7 +52,6 @@ const ItemSelect = ({
             value={totalPrice}
             displayType={"text"}
             thousandSeparator={" "}
-            prefix={false}
             renderText={(value) => (
                <h1 className={styles.total}>
                   <span className={styles.prefix}>{locales.totalHeading}</span>{" "}

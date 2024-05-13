@@ -7,6 +7,7 @@ const TextInput = forwardRef(({ placeholder, error, ...props }, ref) => {
    const bright = {
       filter: "drop-shadow(rgb(255, 0, 0) 0px 0px) saturate(1.7)",
       WebkitFilter: "drop-shadow(rgb(255, 0, 0) 0px 0px) saturate(1.7)",
+      MozFilter: "drop-shadow(rgb(255, 0, 0) 0px 0px) saturate(1.7)",
    };
 
    return (
